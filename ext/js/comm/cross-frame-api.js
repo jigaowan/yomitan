@@ -62,6 +62,16 @@ export class CrossFrameAPIPort extends EventDispatcher {
         return this._otherFrameId;
     }
 
+    /** @type {boolean} */
+    get isConnected() {
+        return this._port !== null;
+    }
+
+    /** @type {number} */
+    get activeInvocationCount() {
+        return this._activeInvocations.size;
+    }
+
     /**
      * @throws {Error}
      */
@@ -330,6 +340,10 @@ export class CrossFrameAPI {
         this._apiMap = new Map();
         /** @type {(port: CrossFrameAPIPort) => void} */
         this._onDisconnectBind = this._onDisconnect.bind(this);
+        /** @type {(port: chrome.runtime.Port) => void} */
+        this._onConnectBind = this._onConnect.bind(this);
+        /** @type {boolean} */
+        this._isPrepared = false;
         /** @type {?number} */
         this._tabId = tabId;
         /** @type {?number} */
@@ -352,7 +366,9 @@ export class CrossFrameAPI {
 
     /** */
     prepare() {
-        chrome.runtime.onConnect.addListener(this._onConnect.bind(this));
+        if (this._isPrepared) { return; }
+        this._isPrepared = true;
+        chrome.runtime.onConnect.addListener(this._onConnectBind);
     }
 
     /**
@@ -381,8 +397,36 @@ export class CrossFrameAPI {
                 throw new Error('Unknown target tab id for invocation');
             }
         }
+
+        // Safari can create two bridged runtime ports in the same JS context
+        // when the requested target is the current frame. That leaves both
+        // ends of the bridge handled by this frame and can duplicate ACK/result
+        // messages. Keep same-frame calls local instead of opening a port.
+        if (targetTabId === this._tabId && targetFrameId === this._frameId) {
+            return await this.invokeLocal(action, params);
+        }
+
         const commPort = await this._getOrCreateCommPort(targetTabId, targetFrameId);
         return await commPort.invoke(action, params, this._ackTimeout, this._responseTimeout);
+    }
+    
+    invokeLocal(action, params) {
+        return new Promise((resolve, reject) => {
+            invokeApiMapHandler(
+                this._apiMap,
+                action,
+                params,
+                [],
+                (response) => {
+                    if (typeof response.error !== 'undefined') {
+                        reject(ExtensionError.deserialize(response.error));
+                    } else {
+                        resolve(response.result);
+                    }
+                },
+                () => reject(new Error(`Unknown action: ${action}`))
+            );
+        });
     }
 
     /**
@@ -424,11 +468,17 @@ export class CrossFrameAPI {
         commPort.off('disconnect', this._onDisconnectBind);
         const {otherTabId, otherFrameId} = commPort;
         const tabPorts = this._commPorts.get(otherTabId);
-        if (typeof tabPorts !== 'undefined') {
-            tabPorts.delete(otherFrameId);
-            if (tabPorts.size === 0) {
-                this._commPorts.delete(otherTabId);
-            }
+        if (typeof tabPorts === 'undefined') { return; }
+
+        // A stale port can disconnect after a newer port for the same
+        // tab/frame pair has already been registered. In that case, deleting
+        // by key would remove the newer valid connection from the map. Only
+        // the currently registered port is allowed to remove itself.
+        if (tabPorts.get(otherFrameId) !== commPort) { return; }
+
+        tabPorts.delete(otherFrameId);
+        if (tabPorts.size === 0) {
+            this._commPorts.delete(otherTabId);
         }
     }
 
@@ -473,12 +523,35 @@ export class CrossFrameAPI {
      * @returns {CrossFrameAPIPort}
      */
     _setupCommPort(otherTabId, otherFrameId, port) {
-        const commPort = new CrossFrameAPIPort(otherTabId, otherFrameId, port, this._apiMap);
         let tabPorts = this._commPorts.get(otherTabId);
         if (typeof tabPorts === 'undefined') {
             tabPorts = new Map();
             this._commPorts.set(otherTabId, tabPorts);
         }
+
+        const existingCommPort = tabPorts.get(otherFrameId);
+        if (typeof existingCommPort !== 'undefined') {
+            // Do not replace a live port while it still has pending requests.
+            // Otherwise, a valid in-flight invocation can be orphaned and its
+            // later ack/result will arrive at a port whose request map does not
+            // contain the id. The incoming duplicate port is closed before it is
+            // registered, so it cannot later remove the valid port from the map.
+            if (existingCommPort.isConnected && existingCommPort.activeInvocationCount > 0) {
+                port.disconnect();
+                return existingCommPort;
+            }
+
+            // Replacing an idle port is safe, but the old CrossFrameAPIPort
+            // must be fully disconnected. Removing only the map disconnect
+            // listener is not enough: its runtime port onMessage listener would
+            // stay alive and could still answer future invokes, producing
+            // duplicate ACK/result messages. Remove the map listener first so
+            // the stale port cannot delete the new mapping during cleanup.
+            existingCommPort.off('disconnect', this._onDisconnectBind);
+            existingCommPort.disconnect();
+        }
+
+        const commPort = new CrossFrameAPIPort(otherTabId, otherFrameId, port, this._apiMap);
         tabPorts.set(otherFrameId, commPort);
         commPort.prepare();
         commPort.on('disconnect', this._onDisconnectBind);
