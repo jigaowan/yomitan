@@ -203,7 +203,7 @@ export class ClipboardReader {
         return new Promise((resolve) => {
             try {
                 chrome.runtime.sendNativeMessage(
-                    'ryu67.yomitan.safari.extension',
+                    chrome.runtime.id,
                     message,
                     (response) => {
                         const e = chrome.runtime.lastError;

@@ -189,7 +189,7 @@ type ApiSurface = {
     };
     getAnkiNoteInfo: {
         params: {
-            notes: Anki.Note[];
+            notes: Anki.Note[] | string;
             fetchAdditionalInfo: boolean;
         };
         return: Anki.NoteInfoWrapper[];
@@ -331,7 +331,7 @@ type ApiSurface = {
     };
     setAllSettings: {
         params: {
-            value: Settings.Options;
+            value: Settings.Options | string;
             source: string;
         };
         return: void;

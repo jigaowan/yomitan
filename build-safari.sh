@@ -7,13 +7,15 @@ Usage: ./build-safari.sh [--version VERSION] [--app-name NAME] [--bundle-identif
 
 Builds a Safari-ready WebExtension bundle in ./builds/yomitan-safari-web-extension and
 generates a macOS Safari app-extension Xcode project with `xcrun safari-web-extension-converter`.
+VERSION defaults to the nearest four-part Git release tag. Without Git metadata, a
+non-placeholder version from ./ext/manifest.json is used.
 EOF
 }
 
 ROOT_DIR=$(CDPATH= cd -- "$(dirname "$0")" && pwd)
-VERSION=0.0.0.0
+VERSION=
 APP_NAME="Yomitan Safari"
-BUNDLE_IDENTIFIER="ryu67.yomitan.safari"
+BUNDLE_IDENTIFIER="setsuna.yomitan.safari"
 PROJECT_LOCATION="$ROOT_DIR/builds/yomitan-safari-app"
 WEB_EXTENSION_DIR="$ROOT_DIR/builds/yomitan-safari-web-extension"
 
@@ -46,6 +48,31 @@ while [ "$#" -gt 0 ]; do
             ;;
     esac
 done
+
+if [ -z "$VERSION" ]; then
+    if ! VERSION=$(git -C "$ROOT_DIR" describe --tags --abbrev=0 --match '*.*.*.*' HEAD 2>/dev/null); then
+        VERSION=
+    fi
+fi
+
+if [ -z "$VERSION" ]; then
+    VERSION=$(python3 - "$ROOT_DIR/ext/manifest.json" <<'PY'
+import json
+import sys
+
+
+with open(sys.argv[1], encoding="utf-8") as file:
+    version = json.load(file).get("version")
+
+if not isinstance(version, str) or not version or version == "0.0.0.0":
+    raise SystemExit(
+        "Unable to determine a release version; fetch Git tags or pass --version",
+    )
+
+print(version)
+PY
+    )
+fi
 
 python3 - "$ROOT_DIR" "$WEB_EXTENSION_DIR" "$VERSION" <<'PY'
 import copy
@@ -158,6 +185,8 @@ manifest_text = manifest_text.replace("$YOMITAN_VERSION", version)
 (output_dir / "manifest.json").write_text(manifest_text, encoding="utf-8")
 PY
 
+node "$ROOT_DIR/dev/safari/prepare-web-extension.js" "$WEB_EXTENSION_DIR"
+
 xcrun safari-web-extension-converter \
     "$WEB_EXTENSION_DIR" \
     --project-location "$PROJECT_LOCATION" \
@@ -168,7 +197,7 @@ xcrun safari-web-extension-converter \
     --no-open \
     --no-prompt \
     --force
-    
+
 MARKETING_VERSION="$VERSION"
 BUILD_NUMBER=$(git -C "$ROOT_DIR" rev-list --count HEAD 2>/dev/null || printf '1')
 

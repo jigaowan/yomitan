@@ -114,12 +114,12 @@ export class API {
     }
 
     /**
-     * @param {import('api').ApiParam<'getAnkiNoteInfo', 'notes'>} notes
+     * @param {import('anki').Note[]} notes
      * @param {import('api').ApiParam<'getAnkiNoteInfo', 'fetchAdditionalInfo'>} fetchAdditionalInfo
      * @returns {Promise<import('api').ApiReturn<'getAnkiNoteInfo'>>}
      */
     getAnkiNoteInfo(notes, fetchAdditionalInfo) {
-        return this._invoke('getAnkiNoteInfo', {notes, fetchAdditionalInfo});
+        return this._invoke('getAnkiNoteInfo', {notes: JSON.stringify(notes), fetchAdditionalInfo});
     }
 
     /**
@@ -307,12 +307,14 @@ export class API {
     }
 
     /**
-     * @param {import('api').ApiParam<'setAllSettings', 'value'>} value
+     * @param {import('settings').Options} value
      * @param {import('api').ApiParam<'setAllSettings', 'source'>} source
      * @returns {Promise<import('api').ApiReturn<'setAllSettings'>>}
      */
     setAllSettings(value, source) {
-        return this._invoke('setAllSettings', {value, source});
+        // Safari can reorder properties in nested objects during extension message transport.
+        // A serialized payload also remains compatible with the other supported browsers.
+        return this._invoke('setAllSettings', {value: JSON.stringify(value), source});
     }
 
     /**

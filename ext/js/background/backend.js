@@ -24,6 +24,7 @@ import {YomitanApi} from '../comm/yomitan-api.js';
 import {createApiMap, invokeApiMapHandler} from '../core/api-map.js';
 import {ExtensionError} from '../core/extension-error.js';
 import {fetchText} from '../core/fetch-utilities.js';
+import {parseJson} from '../core/json.js';
 import {logErrorLevelToNumber} from '../core/log-utilities.js';
 import {log} from '../core/log.js';
 import {isObjectNotArray} from '../core/object-utilities.js';
@@ -703,7 +704,8 @@ export class Backend {
 
     /** @type {import('api').ApiHandler<'getAnkiNoteInfo'>} */
     async _onApiGetAnkiNoteInfo({notes, fetchAdditionalInfo}) {
-        const canAddArray = await this.partitionAddibleNotes(notes);
+        const ankiNotes = typeof notes === 'string' ? /** @type {import('anki').Note[]} */ (parseJson(notes)) : notes;
+        const canAddArray = await this.partitionAddibleNotes(ankiNotes);
 
         /** @type {import('anki').NoteInfoWrapper[]} */
         const results = [];
@@ -973,8 +975,9 @@ export class Backend {
 
     /** @type {import('api').ApiHandler<'setAllSettings'>} */
     async _onApiSetAllSettings({value, source}) {
-        this._optionsUtil.validate(value);
-        this._options = clone(value);
+        const options = typeof value === 'string' ? /** @type {import('settings').Options} */ (parseJson(value)) : value;
+        this._optionsUtil.validate(options);
+        this._options = clone(options);
         await this._saveOptions(source);
     }
 
