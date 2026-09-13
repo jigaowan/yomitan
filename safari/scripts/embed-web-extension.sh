@@ -9,7 +9,7 @@ RESOURCE_STATE_DIR="$DERIVED_FILE_DIR/yomitan-web-extension"
 RESOURCE_INVENTORY="$RESOURCE_STATE_DIR/top-level-resources.txt"
 
 if [ -z "$VERSION" ]; then
-    VERSION=$(git -C "$REPOSITORY_ROOT" describe --tags --abbrev=0 --match '*.*.*.*' HEAD)
+    VERSION=$(git -C "$REPOSITORY_ROOT" describe --tags --abbrev=0 --match '*.*.*.*' HEAD 2>/dev/null || true)
 fi
 
 cd "$REPOSITORY_ROOT"
@@ -26,7 +26,11 @@ if [ -f "$RESOURCE_INVENTORY" ]; then
     done < "$RESOURCE_INVENTORY"
 fi
 
-npm run build:safari -- --version "$VERSION"
+if [ -n "$VERSION" ]; then
+    npm run build:safari -- --version "$VERSION"
+else
+    npm run build:safari
+fi
 
 /usr/bin/ditto "$WEB_EXTENSION_DIR" "$EXTENSION_RESOURCES_DIR"
 
