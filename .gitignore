@@ -4,6 +4,11 @@ node_modules/
 
 builds/
 
+# Xcode user and build data
+xcuserdata/
+DerivedData/
+*.xcuserstate
+
 dictionaries/
 
 /test-results/

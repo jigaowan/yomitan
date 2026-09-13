@@ -2,15 +2,10 @@
 set -eu
 
 REPOSITORY_ROOT=$(CDPATH= cd -- "$SRCROOT/.." && pwd)
-VERSION=${YOMITAN_EXTENSION_VERSION:-}
 WEB_EXTENSION_DIR="$REPOSITORY_ROOT/builds/yomitan-safari-web-extension"
 EXTENSION_RESOURCES_DIR="$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH"
 RESOURCE_STATE_DIR="$DERIVED_FILE_DIR/yomitan-web-extension"
 RESOURCE_INVENTORY="$RESOURCE_STATE_DIR/top-level-resources.txt"
-
-if [ -z "$VERSION" ]; then
-    VERSION=$(git -C "$REPOSITORY_ROOT" describe --tags --abbrev=0 --match '*.*.*.*' HEAD 2>/dev/null || true)
-fi
 
 cd "$REPOSITORY_ROOT"
 
@@ -26,11 +21,7 @@ if [ -f "$RESOURCE_INVENTORY" ]; then
     done < "$RESOURCE_INVENTORY"
 fi
 
-if [ -n "$VERSION" ]; then
-    npm run build:safari -- --version "$VERSION"
-else
-    npm run build:safari
-fi
+npm run build:safari -- --version "$YOMITAN_EXTENSION_VERSION"
 
 /usr/bin/ditto "$WEB_EXTENSION_DIR" "$EXTENSION_RESOURCES_DIR"
 
