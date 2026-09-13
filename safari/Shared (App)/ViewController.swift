@@ -16,7 +16,7 @@ import SafariServices
 typealias PlatformViewController = NSViewController
 #endif
 
-let extensionBundleIdentifier = "dev.setsuna.yomitan.safari.extension"
+let extensionBundleIdentifier = "\(Bundle.main.bundleIdentifier!).extension"
 
 class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMessageHandler {
 

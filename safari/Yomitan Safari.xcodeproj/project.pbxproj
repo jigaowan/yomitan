@@ -601,7 +601,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.setsuna.yomitan.safari.extension;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.setsuna.yomitan.safari.dev.extension;
 				PRODUCT_NAME = "Yomitan Safari Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -676,7 +676,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.setsuna.yomitan.safari;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.setsuna.yomitan.safari.dev;
 				PRODUCT_NAME = "Yomitan Safari";
 				SDKROOT = iphoneos;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -755,7 +755,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.setsuna.yomitan.safari.extension;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.setsuna.yomitan.safari.dev.extension;
 				PRODUCT_NAME = "Yomitan Safari Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -832,7 +832,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.setsuna.yomitan.safari;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.setsuna.yomitan.safari.dev;
 				PRODUCT_NAME = "Yomitan Safari";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = macosx;

@@ -14,14 +14,6 @@ fi
 
 cd "$REPOSITORY_ROOT"
 
-MANIFEST_BACKUP=$(mktemp "${TMPDIR:-/tmp}/yomitan-manifest.XXXXXX")
-cp "$REPOSITORY_ROOT/ext/manifest.json" "$MANIFEST_BACKUP"
-restore_manifest() {
-    cp "$MANIFEST_BACKUP" "$REPOSITORY_ROOT/ext/manifest.json"
-    rm -f "$MANIFEST_BACKUP"
-}
-trap restore_manifest EXIT
-
 if [ -f "$RESOURCE_INVENTORY" ]; then
     while IFS= read -r resource_name; do
         case "$resource_name" in
