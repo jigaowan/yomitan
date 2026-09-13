@@ -18,6 +18,7 @@
 import {initWasm, Resvg} from '@resvg/resvg-wasm';
 import fs from 'fs';
 import {createRequire} from 'module';
+import {pathToFileURL} from 'node:url';
 import path from 'path';
 
 const require = createRequire(import.meta.url);
@@ -118,7 +119,7 @@ async function renderMaskImages(webExtensionDirectory, imagePaths) {
 /**
  * @param {string} webExtensionDirectory
  */
-async function prepareWebExtension(webExtensionDirectory) {
+export async function prepareWebExtension(webExtensionDirectory) {
     const materialCssPath = path.join(webExtensionDirectory, 'css/material.css');
     const displayCssPath = path.join(webExtensionDirectory, 'css/display.css');
     const imagePaths = /** @type {Set<string>} */ (new Set());
@@ -139,8 +140,10 @@ async function prepareWebExtension(webExtensionDirectory) {
     await renderMaskImages(webExtensionDirectory, imagePaths);
 }
 
-const webExtensionDirectory = process.argv[2];
-if (typeof webExtensionDirectory !== 'string') {
-    throw new Error('Usage: node prepare-web-extension.js <web-extension-directory>');
+if (typeof process.argv[1] === 'string' && import.meta.url === pathToFileURL(process.argv[1]).href) {
+    const webExtensionDirectory = process.argv[2];
+    if (typeof webExtensionDirectory !== 'string') {
+        throw new Error('Usage: node prepare-web-extension.js <web-extension-directory>');
+    }
+    await prepareWebExtension(path.resolve(webExtensionDirectory));
 }
-await prepareWebExtension(path.resolve(webExtensionDirectory));

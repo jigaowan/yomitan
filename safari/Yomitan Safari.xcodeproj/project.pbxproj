@@ -1,0 +1,937 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 110;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8C2CAA3330567A830039F2B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2CAA3230567A830039F2B9 /* AppDelegate.swift */; };
+		8C2CAA3530567A830039F2B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2CAA3430567A830039F2B9 /* SceneDelegate.swift */; };
+		8C2CAA3830567A830039F2B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C2CAA3630567A830039F2B9 /* LaunchScreen.storyboard */; };
+		8C2CAA3B30567A830039F2B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C2CAA3930567A830039F2B9 /* Main.storyboard */; };
+		8C2CAA4430567A830039F2B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2CAA4330567A830039F2B9 /* AppDelegate.swift */; };
+		8C2CAA4730567A830039F2B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C2CAA4530567A830039F2B9 /* Main.storyboard */; };
+		8C2CAA4E30567A830039F2B9 /* Yomitan Safari Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8C2CAA4D30567A830039F2B9 /* Yomitan Safari Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8C2CAA5830567A830039F2B9 /* Yomitan Safari Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8C2CAA5730567A830039F2B9 /* Yomitan Safari Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8C2CAA5D30567A830039F2B9 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 8C2CAA2230567A820039F2B9 /* Main.html */; };
+		8C2CAA5E30567A830039F2B9 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 8C2CAA2230567A820039F2B9 /* Main.html */; };
+		8C2CAA5F30567A830039F2B9 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C2CAA2430567A820039F2B9 /* Icon.png */; };
+		8C2CAA6030567A830039F2B9 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C2CAA2430567A820039F2B9 /* Icon.png */; };
+		8C2CAA6130567A830039F2B9 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 8C2CAA2530567A820039F2B9 /* Style.css */; };
+		8C2CAA6230567A830039F2B9 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 8C2CAA2530567A820039F2B9 /* Style.css */; };
+		8C2CAA6330567A830039F2B9 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 8C2CAA2630567A820039F2B9 /* Script.js */; };
+		8C2CAA6430567A830039F2B9 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 8C2CAA2630567A820039F2B9 /* Script.js */; };
+		8C2CAA6530567A830039F2B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2CAA2730567A820039F2B9 /* ViewController.swift */; };
+		8C2CAA6630567A830039F2B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2CAA2730567A820039F2B9 /* ViewController.swift */; };
+		8C2CAA6730567A830039F2B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C2CAA2830567A830039F2B9 /* Assets.xcassets */; };
+		8C2CAA6830567A830039F2B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C2CAA2830567A830039F2B9 /* Assets.xcassets */; };
+		8C2CAA6930567A830039F2B9 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2CAA2A30567A830039F2B9 /* SafariWebExtensionHandler.swift */; };
+		8C2CAA6A30567A830039F2B9 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2CAA2A30567A830039F2B9 /* SafariWebExtensionHandler.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8C2CAA4F30567A830039F2B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8C2CAA1C30567A820039F2B9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8C2CAA4C30567A830039F2B9;
+			remoteInfo = "Yomitan Safari Extension (iOS)";
+		};
+		8C2CAA5930567A830039F2B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8C2CAA1C30567A820039F2B9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8C2CAA5630567A830039F2B9;
+			remoteInfo = "Yomitan Safari Extension (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8C2CAA7030567A830039F2B9 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			dstPath = "";
+			dstSubfolder = PlugIns;
+			files = (
+				8C2CAA4E30567A830039F2B9 /* Yomitan Safari Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+		};
+		8C2CAA7730567A830039F2B9 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			dstPath = "";
+			dstSubfolder = PlugIns;
+			files = (
+				8C2CAA5830567A830039F2B9 /* Yomitan Safari Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8C2CAA2330567A820039F2B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
+		8C2CAA2430567A820039F2B9 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		8C2CAA2530567A820039F2B9 /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		8C2CAA2630567A820039F2B9 /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		8C2CAA2730567A820039F2B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8C2CAA2830567A830039F2B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8C2CAA2A30567A830039F2B9 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		8C2CAA2F30567A830039F2B9 /* Yomitan Safari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yomitan Safari.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C2CAA3230567A830039F2B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8C2CAA3430567A830039F2B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8C2CAA3730567A830039F2B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8C2CAA3A30567A830039F2B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8C2CAA3C30567A830039F2B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C2CAA4130567A830039F2B9 /* Yomitan Safari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yomitan Safari.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C2CAA4330567A830039F2B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8C2CAA4630567A830039F2B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8C2CAA4830567A830039F2B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C2CAA4D30567A830039F2B9 /* Yomitan Safari Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Yomitan Safari Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C2CAA5230567A830039F2B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C2CAA5730567A830039F2B9 /* Yomitan Safari Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Yomitan Safari Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C2CAA5C30567A830039F2B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1B2C3D630567A850039F2B9 /* Version.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8C2CAA2C30567A830039F2B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		8C2CAA3E30567A830039F2B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		8C2CAA4A30567A830039F2B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		8C2CAA5430567A830039F2B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8C2CAA1B30567A820039F2B9 = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D630567A850039F2B9 /* Version.xcconfig */,
+				8C2CAA2030567A820039F2B9 /* Shared (App) */,
+				8C2CAA2930567A830039F2B9 /* Shared (Extension) */,
+				8C2CAA3130567A830039F2B9 /* iOS (App) */,
+				8C2CAA4230567A830039F2B9 /* macOS (App) */,
+				8C2CAA5130567A830039F2B9 /* iOS (Extension) */,
+				8C2CAA5B30567A830039F2B9 /* macOS (Extension) */,
+				8C2CAA3030567A830039F2B9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8C2CAA2030567A820039F2B9 /* Shared (App) */ = {
+			isa = PBXGroup;
+			children = (
+				8C2CAA2730567A820039F2B9 /* ViewController.swift */,
+				8C2CAA2830567A830039F2B9 /* Assets.xcassets */,
+				8C2CAA2130567A820039F2B9 /* Resources */,
+			);
+			path = "Shared (App)";
+			sourceTree = "<group>";
+		};
+		8C2CAA2130567A820039F2B9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8C2CAA2230567A820039F2B9 /* Main.html */,
+				8C2CAA2430567A820039F2B9 /* Icon.png */,
+				8C2CAA2530567A820039F2B9 /* Style.css */,
+				8C2CAA2630567A820039F2B9 /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8C2CAA2930567A830039F2B9 /* Shared (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				8C2CAA2A30567A830039F2B9 /* SafariWebExtensionHandler.swift */,
+			);
+			path = "Shared (Extension)";
+			sourceTree = "<group>";
+		};
+		8C2CAA3030567A830039F2B9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8C2CAA2F30567A830039F2B9 /* Yomitan Safari.app */,
+				8C2CAA4130567A830039F2B9 /* Yomitan Safari.app */,
+				8C2CAA4D30567A830039F2B9 /* Yomitan Safari Extension.appex */,
+				8C2CAA5730567A830039F2B9 /* Yomitan Safari Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8C2CAA3130567A830039F2B9 /* iOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				8C2CAA3230567A830039F2B9 /* AppDelegate.swift */,
+				8C2CAA3430567A830039F2B9 /* SceneDelegate.swift */,
+				8C2CAA3630567A830039F2B9 /* LaunchScreen.storyboard */,
+				8C2CAA3930567A830039F2B9 /* Main.storyboard */,
+				8C2CAA3C30567A830039F2B9 /* Info.plist */,
+			);
+			path = "iOS (App)";
+			sourceTree = "<group>";
+		};
+		8C2CAA4230567A830039F2B9 /* macOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				8C2CAA4330567A830039F2B9 /* AppDelegate.swift */,
+				8C2CAA4530567A830039F2B9 /* Main.storyboard */,
+				8C2CAA4830567A830039F2B9 /* Info.plist */,
+			);
+			path = "macOS (App)";
+			sourceTree = "<group>";
+		};
+		8C2CAA5130567A830039F2B9 /* iOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				8C2CAA5230567A830039F2B9 /* Info.plist */,
+			);
+			path = "iOS (Extension)";
+			sourceTree = "<group>";
+		};
+		8C2CAA5B30567A830039F2B9 /* macOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				8C2CAA5C30567A830039F2B9 /* Info.plist */,
+			);
+			path = "macOS (Extension)";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8C2CAA2E30567A830039F2B9 /* Yomitan Safari (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C2CAA7130567A830039F2B9 /* Build configuration list for PBXNativeTarget "Yomitan Safari (iOS)" */;
+			buildPhases = (
+				8C2CAA2B30567A830039F2B9 /* Sources */,
+				8C2CAA2C30567A830039F2B9 /* Frameworks */,
+				8C2CAA2D30567A830039F2B9 /* Resources */,
+				8C2CAA7030567A830039F2B9 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8C2CAA5030567A830039F2B9 /* PBXTargetDependency */,
+			);
+			name = "Yomitan Safari (iOS)";
+			productName = "Yomitan Safari (iOS)";
+			productReference = 8C2CAA2F30567A830039F2B9 /* Yomitan Safari.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8C2CAA4030567A830039F2B9 /* Yomitan Safari (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C2CAA7830567A830039F2B9 /* Build configuration list for PBXNativeTarget "Yomitan Safari (macOS)" */;
+			buildPhases = (
+				8C2CAA3D30567A830039F2B9 /* Sources */,
+				8C2CAA3E30567A830039F2B9 /* Frameworks */,
+				8C2CAA3F30567A830039F2B9 /* Resources */,
+				8C2CAA7730567A830039F2B9 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8C2CAA5A30567A830039F2B9 /* PBXTargetDependency */,
+			);
+			name = "Yomitan Safari (macOS)";
+			productName = "Yomitan Safari (macOS)";
+			productReference = 8C2CAA4130567A830039F2B9 /* Yomitan Safari.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8C2CAA4C30567A830039F2B9 /* Yomitan Safari Extension (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C2CAA6D30567A830039F2B9 /* Build configuration list for PBXNativeTarget "Yomitan Safari Extension (iOS)" */;
+			buildPhases = (
+				8C2CAA4930567A830039F2B9 /* Sources */,
+				8C2CAA4A30567A830039F2B9 /* Frameworks */,
+				8C2CAA4B30567A830039F2B9 /* Resources */,
+				A1B2C3D430567A850039F2B9 /* Embed Web Extension Resources */,
+			);
+			buildRules = (
+			);
+			name = "Yomitan Safari Extension (iOS)";
+			productName = "Yomitan Safari Extension (iOS)";
+			productReference = 8C2CAA4D30567A830039F2B9 /* Yomitan Safari Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		8C2CAA5630567A830039F2B9 /* Yomitan Safari Extension (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C2CAA7430567A830039F2B9 /* Build configuration list for PBXNativeTarget "Yomitan Safari Extension (macOS)" */;
+			buildPhases = (
+				8C2CAA5330567A830039F2B9 /* Sources */,
+				8C2CAA5430567A830039F2B9 /* Frameworks */,
+				8C2CAA5530567A830039F2B9 /* Resources */,
+				A1B2C3D530567A850039F2B9 /* Embed Web Extension Resources */,
+			);
+			buildRules = (
+			);
+			name = "Yomitan Safari Extension (macOS)";
+			productName = "Yomitan Safari Extension (macOS)";
+			productReference = 8C2CAA5730567A830039F2B9 /* Yomitan Safari Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8C2CAA1C30567A820039F2B9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					8C2CAA2E30567A830039F2B9 = {
+						CreatedOnToolsVersion = 27.0;
+					};
+					8C2CAA4030567A830039F2B9 = {
+						CreatedOnToolsVersion = 27.0;
+					};
+					8C2CAA4C30567A830039F2B9 = {
+						CreatedOnToolsVersion = 27.0;
+					};
+					8C2CAA5630567A830039F2B9 = {
+						CreatedOnToolsVersion = 27.0;
+					};
+				};
+			};
+			buildConfigurationList = 8C2CAA1F30567A820039F2B9 /* Build configuration list for PBXProject "Yomitan Safari" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8C2CAA1B30567A820039F2B9;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 8C2CAA3030567A830039F2B9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8C2CAA2E30567A830039F2B9 /* Yomitan Safari (iOS) */,
+				8C2CAA4030567A830039F2B9 /* Yomitan Safari (macOS) */,
+				8C2CAA4C30567A830039F2B9 /* Yomitan Safari Extension (iOS) */,
+				8C2CAA5630567A830039F2B9 /* Yomitan Safari Extension (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8C2CAA2D30567A830039F2B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+				8C2CAA5F30567A830039F2B9 /* Icon.png in Resources */,
+				8C2CAA3830567A830039F2B9 /* LaunchScreen.storyboard in Resources */,
+				8C2CAA5D30567A830039F2B9 /* Main.html in Resources */,
+				8C2CAA6330567A830039F2B9 /* Script.js in Resources */,
+				8C2CAA6730567A830039F2B9 /* Assets.xcassets in Resources */,
+				8C2CAA3B30567A830039F2B9 /* Main.storyboard in Resources */,
+				8C2CAA6130567A830039F2B9 /* Style.css in Resources */,
+			);
+		};
+		8C2CAA3F30567A830039F2B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+				8C2CAA6030567A830039F2B9 /* Icon.png in Resources */,
+				8C2CAA6230567A830039F2B9 /* Style.css in Resources */,
+				8C2CAA4730567A830039F2B9 /* Main.storyboard in Resources */,
+				8C2CAA6430567A830039F2B9 /* Script.js in Resources */,
+				8C2CAA6830567A830039F2B9 /* Assets.xcassets in Resources */,
+				8C2CAA5E30567A830039F2B9 /* Main.html in Resources */,
+			);
+		};
+		8C2CAA4B30567A830039F2B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		8C2CAA5530567A830039F2B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A1B2C3D430567A850039F2B9 /* Embed Web Extension Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			name = "Embed Web Extension Resources";
+			shellPath = /bin/sh;
+			shellScript = (
+				"\"$SRCROOT/scripts/embed-web-extension.sh\"",
+				"",
+			);
+		};
+		A1B2C3D530567A850039F2B9 /* Embed Web Extension Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			name = "Embed Web Extension Resources";
+			shellPath = /bin/sh;
+			shellScript = (
+				"\"$SRCROOT/scripts/embed-web-extension.sh\"",
+				"",
+			);
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8C2CAA2B30567A830039F2B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				8C2CAA6530567A830039F2B9 /* ViewController.swift in Sources */,
+				8C2CAA3330567A830039F2B9 /* AppDelegate.swift in Sources */,
+				8C2CAA3530567A830039F2B9 /* SceneDelegate.swift in Sources */,
+			);
+		};
+		8C2CAA3D30567A830039F2B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				8C2CAA6630567A830039F2B9 /* ViewController.swift in Sources */,
+				8C2CAA4430567A830039F2B9 /* AppDelegate.swift in Sources */,
+			);
+		};
+		8C2CAA4930567A830039F2B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				8C2CAA6930567A830039F2B9 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+		};
+		8C2CAA5330567A830039F2B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				8C2CAA6A30567A830039F2B9 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8C2CAA5030567A830039F2B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8C2CAA4C30567A830039F2B9 /* Yomitan Safari Extension (iOS) */;
+			targetProxy = 8C2CAA4F30567A830039F2B9 /* PBXContainerItemProxy */;
+		};
+		8C2CAA5A30567A830039F2B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8C2CAA5630567A830039F2B9 /* Yomitan Safari Extension (macOS) */;
+			targetProxy = 8C2CAA5930567A830039F2B9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8C2CAA2230567A820039F2B9 /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C2CAA2330567A820039F2B9 /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		8C2CAA3630567A830039F2B9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C2CAA3730567A830039F2B9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8C2CAA3930567A830039F2B9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C2CAA3A30567A830039F2B9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8C2CAA4530567A830039F2B9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C2CAA4630567A830039F2B9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8C2CAA6B30567A830039F2B9 /* Debug configuration for PBXProject "Yomitan Safari" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8C2CAA6C30567A830039F2B9 /* Release configuration for PBXProject "Yomitan Safari" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		8C2CAA6E30567A830039F2B9 /* Debug configuration for PBXNativeTarget "Yomitan Safari Extension (iOS)" */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1B2C3D630567A850039F2B9 /* Version.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CL5HFM2K24;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Yomitan Safari Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 Yomitan Authors";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.setsuna.yomitan.safari.extension;
+				PRODUCT_NAME = "Yomitan Safari Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8C2CAA6F30567A830039F2B9 /* Release configuration for PBXNativeTarget "Yomitan Safari Extension (iOS)" */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1B2C3D630567A850039F2B9 /* Version.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CL5HFM2K24;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Yomitan Safari Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 Yomitan Authors";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.setsuna.yomitan.safari.extension;
+				PRODUCT_NAME = "Yomitan Safari Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8C2CAA7230567A830039F2B9 /* Debug configuration for PBXNativeTarget "Yomitan Safari (iOS)" */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1B2C3D630567A850039F2B9 /* Version.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CL5HFM2K24;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Yomitan Safari (Unofficial)";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 Yomitan Authors";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.setsuna.yomitan.safari;
+				PRODUCT_NAME = "Yomitan Safari";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8C2CAA7330567A830039F2B9 /* Release configuration for PBXNativeTarget "Yomitan Safari (iOS)" */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1B2C3D630567A850039F2B9 /* Version.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CL5HFM2K24;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Yomitan Safari (Unofficial)";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 Yomitan Authors";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.setsuna.yomitan.safari;
+				PRODUCT_NAME = "Yomitan Safari";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8C2CAA7530567A830039F2B9 /* Debug configuration for PBXNativeTarget "Yomitan Safari Extension (macOS)" */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1B2C3D630567A850039F2B9 /* Version.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CL5HFM2K24;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Yomitan Safari Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 Yomitan Authors";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.setsuna.yomitan.safari.extension;
+				PRODUCT_NAME = "Yomitan Safari Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		8C2CAA7630567A830039F2B9 /* Release configuration for PBXNativeTarget "Yomitan Safari Extension (macOS)" */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1B2C3D630567A850039F2B9 /* Version.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CL5HFM2K24;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Yomitan Safari Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 Yomitan Authors";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.setsuna.yomitan.safari.extension;
+				PRODUCT_NAME = "Yomitan Safari Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		8C2CAA7930567A830039F2B9 /* Debug configuration for PBXNativeTarget "Yomitan Safari (macOS)" */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1B2C3D630567A850039F2B9 /* Version.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CL5HFM2K24;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Yomitan Safari (Unofficial)";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 Yomitan Authors";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.setsuna.yomitan.safari;
+				PRODUCT_NAME = "Yomitan Safari";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		8C2CAA7A30567A830039F2B9 /* Release configuration for PBXNativeTarget "Yomitan Safari (macOS)" */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1B2C3D630567A850039F2B9 /* Version.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CL5HFM2K24;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Yomitan Safari (Unofficial)";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 Yomitan Authors";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.setsuna.yomitan.safari;
+				PRODUCT_NAME = "Yomitan Safari";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8C2CAA1F30567A820039F2B9 /* Build configuration list for PBXProject "Yomitan Safari" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C2CAA6B30567A830039F2B9 /* Debug configuration for PBXProject "Yomitan Safari" */,
+				8C2CAA6C30567A830039F2B9 /* Release configuration for PBXProject "Yomitan Safari" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		8C2CAA6D30567A830039F2B9 /* Build configuration list for PBXNativeTarget "Yomitan Safari Extension (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C2CAA6E30567A830039F2B9 /* Debug configuration for PBXNativeTarget "Yomitan Safari Extension (iOS)" */,
+				8C2CAA6F30567A830039F2B9 /* Release configuration for PBXNativeTarget "Yomitan Safari Extension (iOS)" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		8C2CAA7130567A830039F2B9 /* Build configuration list for PBXNativeTarget "Yomitan Safari (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C2CAA7230567A830039F2B9 /* Debug configuration for PBXNativeTarget "Yomitan Safari (iOS)" */,
+				8C2CAA7330567A830039F2B9 /* Release configuration for PBXNativeTarget "Yomitan Safari (iOS)" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		8C2CAA7430567A830039F2B9 /* Build configuration list for PBXNativeTarget "Yomitan Safari Extension (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C2CAA7530567A830039F2B9 /* Debug configuration for PBXNativeTarget "Yomitan Safari Extension (macOS)" */,
+				8C2CAA7630567A830039F2B9 /* Release configuration for PBXNativeTarget "Yomitan Safari Extension (macOS)" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		8C2CAA7830567A830039F2B9 /* Build configuration list for PBXNativeTarget "Yomitan Safari (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C2CAA7930567A830039F2B9 /* Debug configuration for PBXNativeTarget "Yomitan Safari (macOS)" */,
+				8C2CAA7A30567A830039F2B9 /* Release configuration for PBXNativeTarget "Yomitan Safari (macOS)" */,
+			);
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8C2CAA1C30567A820039F2B9 /* Project object */;
+	validationLevel = 1;
+}

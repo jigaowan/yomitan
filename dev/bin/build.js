@@ -26,6 +26,7 @@ import readline from 'readline';
 import {parseArgs} from 'util';
 import {buildLibs} from '../build-libs.js';
 import {ManifestUtil} from '../manifest-util.js';
+import {prepareWebExtension} from '../safari/prepare-web-extension.js';
 import {getAllFiles} from '../util.js';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -204,10 +205,16 @@ async function build(buildDir, extDir, manifestUtil, variantNames, manifestPath,
                 }
             } else {
                 if (!dryRun) {
+                    if (variantName === 'safari') {
+                        fs.rmSync(fullFileName, {recursive: true, force: true});
+                    }
                     fs.cpSync(extDir, fullFileName, {recursive: true});
                     for (const excludeFile of excludeFiles) {
                         const excludePath = path.join(fullFileName, excludeFile);
                         fs.rmSync(excludePath, {recursive: true, force: true});
+                    }
+                    if (variantName === 'safari') {
+                        await prepareWebExtension(fullFileName);
                     }
                 }
             }
