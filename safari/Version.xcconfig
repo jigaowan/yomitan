@@ -2,5 +2,5 @@
 YOMITAN_EXTENSION_VERSION = 26.8.24.0
 
 // Native app release and build versions are maintained independently.
-MARKETING_VERSION = 26.7.29
+MARKETING_VERSION = 1.0
 CURRENT_PROJECT_VERSION = 1
