@@ -377,6 +377,14 @@
                 {
                     "action": "set",
                     "path": [
+                        "background",
+                        "persistent"
+                    ],
+                    "value": false
+                },
+                {
+                    "action": "set",
+                    "path": [
                         "content_security_policy",
                         "extension_pages"
                     ],
