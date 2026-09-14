@@ -338,6 +338,17 @@
             "fileName": "yomitan-safari-web-extension",
             "modifications": [
                 {
+                    "action": "set",
+                    "path": [
+                        "externally_connectable"
+                    ],
+                    "value": {
+                        "matches": [
+                            "https://yomitan.ogiso.me/*"
+                        ]
+                    }
+                },
+                {
                     "action": "remove",
                     "path": [
                         "optional_permissions"

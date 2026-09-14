@@ -257,6 +257,9 @@ export class Backend {
 
         const onMessage = this._onMessageWrapper.bind(this);
         chrome.runtime.onMessage.addListener(onMessage);
+        if (this._isSafariWebExtension() && chrome.runtime.onMessageExternal) {
+            chrome.runtime.onMessageExternal.addListener(this._onMessageExternal.bind(this));
+        }
 
         // On Chrome, this is for receiving messages sent with navigator.serviceWorker, which has the benefit of being able to transfer objects, but doesn't accept callbacks
         (/** @type {ServiceWorkerGlobalScope & typeof globalThis} */ (globalThis)).addEventListener('message', this._onPmMessage.bind(this));
@@ -434,6 +437,36 @@ export class Backend {
         this._prepareCompletePromise.then(
             () => { this._onMessage(message, sender, sendResponse); },
             () => { sendResponse(); },
+        );
+        return true;
+    }
+
+    /**
+     * @param {unknown} message
+     * @param {chrome.runtime.MessageSender} sender
+     * @param {(response: unknown) => void} sendResponse
+     * @returns {boolean}
+     */
+    _onMessageExternal(message, sender, sendResponse) {
+        // Keep the website bridge separate from the privileged internal API dispatcher.
+        try {
+            if (typeof sender.url !== 'string' || new URL(sender.url).origin !== 'https://yomitan.ogiso.me') {
+                return false;
+            }
+        } catch (e) {
+            return false;
+        }
+        if (!isObjectNotArray(message) || message.action !== 'openSearchPage' ||
+        (typeof message.query !== 'undefined' && typeof message.query !== 'string')) {
+            sendResponse({ok: false, error: 'Invalid search request'});
+            return false;
+        }
+        const query = typeof message.query === 'string' ? message.query : '';
+        void this._prepareCompletePromise.then(
+            () => this._onCommandOpenSearchPage({mode: 'existingOrNewTab', query}),
+        ).then(
+            () => sendResponse({ok: true}),
+            () => sendResponse({ok: false, error: 'Could not open search page'}),
         );
         return true;
     }
