@@ -461,10 +461,18 @@ export class Backend {
             sendResponse({ok: false, error: 'Invalid search request'});
             return false;
         }
+        const tabId = sender.tab?.id;
+        if (typeof tabId !== 'number') {
+            sendResponse({ok: false, error: 'Missing source tab'});
+            return false;
+        }
         const query = typeof message.query === 'string' ? message.query : '';
-        void this._prepareCompletePromise.then(
-            () => this._onCommandOpenSearchPage({mode: 'existingOrNewTab', query}),
-        ).then(
+        void this._prepareCompletePromise.then(() => {
+            const url = new URL(chrome.runtime.getURL('/search.html'));
+            if (query.length > 0) { url.searchParams.set('query', query); }
+            // Target the sender even if the user switches tabs while the background initializes.
+            return chrome.tabs.update(tabId, {url: url.href});
+        }).then(
             () => sendResponse({ok: true}),
             () => sendResponse({ok: false, error: 'Could not open search page'}),
         );

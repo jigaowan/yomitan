@@ -17,21 +17,31 @@
 
 /* eslint-disable no-underscore-dangle */
 
-import {describe, expect, test, vi} from 'vitest';
+import {afterEach, beforeEach, describe, expect, test, vi} from 'vitest';
 import {Backend} from '../ext/js/background/backend.js';
 
 // eslint-disable-next-line @typescript-eslint/unbound-method
 const onMessageExternal = Backend.prototype._onMessageExternal;
 
 /**
- * @returns {{_prepareCompletePromise: Promise<void>, _onCommandOpenSearchPage: ReturnType<typeof vi.fn>}} Test backend context.
+ * @returns {{_prepareCompletePromise: Promise<void>}} Test backend context.
  */
 function createContext() {
     return {
         _prepareCompletePromise: Promise.resolve(),
-        _onCommandOpenSearchPage: vi.fn().mockResolvedValue(void 0),
     };
 }
+
+const updateTab = vi.fn().mockResolvedValue({});
+
+beforeEach(() => {
+    updateTab.mockReset().mockResolvedValue({});
+    vi.stubGlobal('chrome', {
+        runtime: {getURL: (/** @type {string} */ path) => `safari-web-extension://test-id${path}`},
+        tabs: {update: updateTab},
+    });
+});
+afterEach(() => { vi.unstubAllGlobals(); });
 
 describe('external search bridge', () => {
     test.each([
@@ -46,7 +56,7 @@ describe('external search bridge', () => {
         expect(onMessageExternal.call(context, {action: 'openSearchPage'}, {url}, respond)).toBe(false);
         await Promise.resolve();
         expect(respond).not.toHaveBeenCalled();
-        expect(context._onCommandOpenSearchPage).not.toHaveBeenCalled();
+        expect(updateTab).not.toHaveBeenCalled();
     });
 
     test.each([null, {}, {action: 'getAllSettings'}, {action: 'openSearchPage', query: 42}])('rejects invalid requests %j', (message) => {
@@ -54,7 +64,7 @@ describe('external search bridge', () => {
         const respond = vi.fn();
         expect(onMessageExternal.call(context, message, {url: 'https://yomitan.ogiso.me/open/search'}, respond)).toBe(false);
         expect(respond).toHaveBeenCalledWith({ok: false, error: 'Invalid search request'});
-        expect(context._onCommandOpenSearchPage).not.toHaveBeenCalled();
+        expect(updateTab).not.toHaveBeenCalled();
     });
 
     test('waits for initialization and preserves the query', async () => {
@@ -62,21 +72,29 @@ describe('external search bridge', () => {
         let ready = () => {};
         context._prepareCompletePromise = new Promise((resolve) => { ready = resolve; });
         const response = new Promise((resolve) => {
-            expect(onMessageExternal.call(context, {action: 'openSearchPage', query: '日本語 & #?'}, {url: 'https://yomitan.ogiso.me/open/search'}, resolve)).toBe(true);
+            expect(onMessageExternal.call(context, {action: 'openSearchPage', query: '日本語 & #?'}, {url: 'https://yomitan.ogiso.me/open/search', tab: {id: 42, index: 0, windowId: 1, active: true, highlighted: true, pinned: false, incognito: false, selected: true, discarded: false, autoDiscardable: true, groupId: -1}}, resolve)).toBe(true);
         });
-        expect(context._onCommandOpenSearchPage).not.toHaveBeenCalled();
+        expect(updateTab).not.toHaveBeenCalled();
         ready();
         expect(await response).toEqual({ok: true});
-        expect(context._onCommandOpenSearchPage).toHaveBeenCalledWith({mode: 'existingOrNewTab', query: '日本語 & #?'});
+        expect(updateTab).toHaveBeenCalledTimes(1);
+        expect(updateTab).toHaveBeenCalledWith(42, {url: 'safari-web-extension://test-id/search.html?query=%E6%97%A5%E6%9C%AC%E8%AA%9E+%26+%23%3F'});
+    });
+
+    test('does not navigate an unrelated tab when sender has no tab', () => {
+        const respond = vi.fn();
+        expect(onMessageExternal.call(createContext(), {action: 'openSearchPage'}, {url: 'https://yomitan.ogiso.me/'}, respond)).toBe(false);
+        expect(updateTab).not.toHaveBeenCalled();
+        expect(respond).toHaveBeenCalledWith({ok: false, error: 'Missing source tab'});
     });
 
     test('opens without a query and reports failures', async () => {
         const context = createContext();
-        context._onCommandOpenSearchPage.mockRejectedValue(new Error('Tab unavailable'));
+        updateTab.mockRejectedValue(new Error('Tab unavailable'));
         const response = await new Promise(/** @param {(value: unknown) => void} resolve */ (resolve) => {
-            onMessageExternal.call(context, {action: 'openSearchPage'}, {url: 'https://yomitan.ogiso.me/'}, resolve);
+            onMessageExternal.call(context, {action: 'openSearchPage'}, {url: 'https://yomitan.ogiso.me/', tab: {id: 42, index: 0, windowId: 1, active: true, highlighted: true, pinned: false, incognito: false, selected: true, discarded: false, autoDiscardable: true, groupId: -1}}, resolve);
         });
-        expect(context._onCommandOpenSearchPage).toHaveBeenCalledWith({mode: 'existingOrNewTab', query: ''});
+        expect(updateTab).toHaveBeenCalledWith(42, {url: 'safari-web-extension://test-id/search.html'});
         expect(response).toEqual({ok: false, error: 'Could not open search page'});
     });
 });
