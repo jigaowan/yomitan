@@ -535,7 +535,7 @@ export class Backend {
      * @param {chrome.runtime.InstalledDetails} event
      */
     _onInstalled({reason}) {
-        if (reason !== 'install') { return; }
+        if (reason !== 'install' && !(reason === 'update' && this._isSafariWebExtension())) { return; }
         void this._requestPersistentStorage();
     }
 
@@ -3037,13 +3037,19 @@ export class Backend {
     }
 
     /**
-     * Only request this permission for Firefox versions >= 77.
+     * Request persistence for Safari and Firefox versions >= 77.
      * https://bugzilla.mozilla.org/show_bug.cgi?id=1630413
      * @returns {Promise<void>}
      */
     async _requestPersistentStorage() {
         try {
+            if (typeof navigator.storage?.persist !== 'function' || typeof navigator.storage.persisted !== 'function') { return; }
             if (await navigator.storage.persisted()) { return; }
+
+            if (this._isSafariWebExtension()) {
+                await navigator.storage.persist();
+                return;
+            }
 
             const {vendor, version} = await browser.runtime.getBrowserInfo();
             if (vendor !== 'Mozilla') { return; }
